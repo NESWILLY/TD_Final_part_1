@@ -9,4 +9,46 @@ paths:
 
 components:
   schemas:
+    Competition:
+      type: object
+      properties:
+        name:
+          type: string
+          example: LIGA
+        location:
+          type: string
+          example: ESPAGNE or EUROPE
+
+    Team:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Real Madrid
+        slogan:
+          type: string
+          example: Hala Madrid
+        competitions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Competition'
+        players:
+          type: array
+          items:
+            $ref: '#/components/schemas/Player'
+
+    Player:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Cristiano Ronaldo
+        number:
+          type: integer
+          example: 7
+        strongFoot:
+          type: string
+          enum: [Left, Right]
+          example: Right
+
 
